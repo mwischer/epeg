@@ -5,12 +5,13 @@ cmake_minimum_required(VERSION 2.8)
 set(CMAKE_MACOSX_RPATH 1)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-add_library(epeg STATIC epeg_main.c)
+# add_library(epeg STATIC epeg_main.c)
+add_library(epeg SHARED epeg_main.c)
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_SOURCE_DIR}/dist)
 file(MAKE_DIRECTORY ${CMAKE_INSTALL_PREFIX})
 
-set(LIBJPEG_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib/libjpeg.a)
+set(LIBJPEG_LIBRARY ${CMAKE_INSTALL_PREFIX}/lib64/libjpeg.a)
 
 include_directories(${CMAKE_INSTALL_PREFIX}/include)
 target_link_libraries(epeg ${LIBJPEG_LIBRARY})
